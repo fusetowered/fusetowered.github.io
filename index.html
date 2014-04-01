@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="mobile analytics, mobile reporting, app configuring, push notification, mobile game marketing, mobile tools, acquisition tracking, revenue reporting">
+<meta name="description" content="Fuse Powered Inc. provides the Fuseboxx™ mobile publishing platform, a 'one-stop' solution that provides extensive reporting, actionable analytics and a powerful toolset all in one FREE SDK.">
+<link rel="shortcut icon" href="favicon.ico">
+
+<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+<title>Fuse Towered - The only end-to-end mobile app publishing solution designed to make you more money</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Begin header -->
+<div class="navbar navbar-fixed-top navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="img/fusetowered.png" /></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="fuseboxx.php">FuseBoxx<sup>TM</sup></a></li> 
+        <li><a href="adrally.php">AdRally<sup>TM</sup></a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="http://fuseboxxblog.com">Blog</a></li>
+        <li><a href="contact.php">Contact</a></li>
+                <li><a href="#login" data-toggle="modal" data-target="#loginModal">Login</a></li>
+              </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="img/logo_fuseboxx_small.png"/>
+        <button type="button" class="btn btn-default close" data-dismiss="modal">x</button>
+      </div>
+      <form role="form" id="loginForm">
+        <div class="modal-body">
+           <div class="alert alert-danger inlineError" style="display:none"></div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="rememberme" name="rememberme" value="1"> Remember Me
+            </label>
+          </div>
+          <a href="#" id="passwordResetLink">Forgot your password?</a>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-action btn-lg">Login</button>
+        </div>
+      </form>
+
+      <form role="form" id="passwordResetForm" style="display:none">
+        <div class="modal-body">
+          <h2 style="margin:0 0 20px; font-size:36px;">Forgot Your Password</h2>
+          <div class="alert alert-danger inlineError" style="display:none;"></div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-action btn-lg">Reset Password</button>
+        </div>
+      </form>
+
+      <div id="emailSent" style="display:none">
+          <div class="modal-body">
+              <h2 style="margin:0 0 10px;">Email sent!</h2>
+              <p>Please check your inbox for instructions on resetting your password.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Learn more about our solutions!</h4>
+        
+      </div>
+      <form role="form" id="signupForm">
+        <div class="modal-body">
+          <p>Enter your information and one of our knowledgeable teammates will get back to you shortly.</p>
+          <div class="alert alert-danger" style="display:none"></div>
+          
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" class="form-control" id="company" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="company">I'm interested in:</label>
+
+            <div class="checkbox">
+              <label>
+                <input id="wantsFuseBoxx" type="checkbox" value=""> FuseBoxx&trade; &mdash; The only complete mobile publishing toolkit on the market.
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                <input id="wantsAdRally" type="checkbox" value=""> AdRally&trade; &mdash; The highest paying ads and fill rates, without having to integrate multiple SDKs.
+              </label>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button type="submit" class="btn btn-action btn-lg">Request more information</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End Header -->
+
+
+    <div class="content">
+      <div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="8000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#mainCarousel" data-slide-to="0" class=""></li>
+          <li data-target="#mainCarousel" data-slide-to="1" class=""></li>
+          <li data-target="#mainCarousel" data-slide-to="2" class="active"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active" id="carouselMainSlide">
+            <div class="container">
+              <div class="carousel-caption">
+                <h2>The only <strong>end-to-end</strong> mobile app publishing solution designed to make you more money.</h2>
+                <h3>Built by app developers, for app developers.</h3>
+                <p class="platforms">Available on iOS and Android</p>
+              </div>
+              </div>
+          </div>
+          <div class="item" id="carouselFuseBoxxSlide">
+              <div class="container">
+              <div class="carousel-caption">
+                  <h1>FuseBoxx</h1>
+                  <h2>Actionable analytics and publishing tools to monetize 100% of your users.</h2>
+                  <a class="btn btn-lg" href="fuseboxx.php" role="button">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="item" id="carouselAdRallySlide">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>AdRally</h1>
+                <h2>Get the highest paying ads and fill rates, in every country without having to integrate multiple SDKs.</h2>
+                <a class="btn btn-lg" href="adrally.php" role="button">Learn More</a>
+              </div>
+            </div>
+          </div>
+          </div>
+          <a class="left carousel-control" href="#mainCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+          <a class="right carousel-control" href="#mainCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+
+      <div class="product-boxes row">
+        <span class="col-md-6">
+          <div class="product-box">
+            <img class="product-photo" src="img/home_product_fuseboxx.png" />
+            <img class="product-logo" src="img/logo_fuseboxx_medium.png" />
+            <p>The only complete mobile publishing <br/> toolkit on the market.</p>
+          </div>
+        </span>
+        <span class="col-md-6">
+          <div class="product-box">
+            <img class="product-photo" src="img/home_product_adrally.png" />
+            <img class="product-logo" src="img/logo_adrally_medium.png" />
+            <p>Fully managed ad mediation with flexible control. <br/> Serve the right ads, to the right users, at the right time.</p>
+          </div>
+        </span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div id="customerCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <div class="carousel-inner">
+          <div class="item active" id="">
+            <div class="customer-logo" id="customerLogo1">505 Games Another Place Disruptor Beam DR Studios Evoluton</div>
+          </div>
+          <div class="item" id="">
+            <div class="customer-logo" id="customerLogo2">GoGii Games Hot Head Hutch Rebellion Spin Master</div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#customerCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#customerCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="feature-boxes row">
+        <span class="col-md-4">
+          <div class="feature-box" id="featureDoubleIAP">
+            <h3><strong>2x</strong> IAP Conversion Doubled with FuseBoxx<br/>&nbsp;</h3>
+            <a class="btn btn-lg" data-toggle="modal" data-target="#modalCaseStudyFuseBoxx" role="button">Learn more</a>
+          </div>
+        </span>
+
+        <span class="col-md-4">
+          <div class="feature-box" id="featureRebellion">
+            <h3>&ldquo;The most important SDK we use!&rdquo;</h3>
+            <span><strong>Chris Kingsley, CEO</strong><br/><i>Rebellion</i><span>
+          </div>
+        </span>
+
+        <span class="col-md-4">
+          <div class="feature-box" id="featureTripleAdRally">
+            <h3><strong>3x</strong> With AdRally, We Tripled Global Ad Revenue Overnight</h3>
+            <a class="btn btn-lg" data-toggle="modal" data-target="#modalCaseStudyAdRally" role="button">Find out How</a>
+          </div>
+        </span>
+      </div>
+
+      <div class="call-to-action row">
+        <span class="col-md-12 call-to-action-inner">
+          <p><i class="fa fa-clock-o"></i></p>
+          <p>1 hour, that's all you need to get started.</p>
+          <a class="btn btn-lg btn-action" href="fuseboxx.php" role="button">Find out How</a>
+          <br style="clear:both"/>
+        </span>
+      </div>
+
+    </div>
+
+  </div><!-- /.container -->
+
+  <div class="modal fade bs-example-modal-lg" id="modalCaseStudyFuseBoxx" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog model-casestudy">
+      <div class="modal-content">
+        <img src="img/casestudy_fuseboxx.jpg"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade bs-example-modal-lg" id="modalCaseStudyAdRally" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog model-casestudy">
+      <div class="modal-content">
+        <img src="img/casestudy_adrally.jpg"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Begin footer -->
+<div class="footer">
+    <div class="container">
+      <div class="row">
+        <span class="col-md-8">
+          <div class="footer-links">
+            <ul class="list-inline">
+              <li>
+                <a href="fuseboxx.php">FuseBoxx&trade;</a>
+              </li>
+              <li>
+                <a href="adrally.php">AdRally&trade;</a>
+              </li>
+              <li>
+                <a href="about.php">About</a>
+              </li>
+              <li>
+                <a href="http://fuseboxxblog.com">Blog</a>
+              </li>              
+              <li>
+                <a href="contact.php">Contact</a>
+              </li>
+              <li>
+                <a data-toggle="modal" data-target="#loginModal" href="#">Login</a>
+              </li>                  
+              <li>
+                <a href="legal.php">Legal</a>
+              </li>
+            </ul>
+          </div>
+        </span>
+        <span class="col-md-4">
+            <div class="social-buttons">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://www.facebook.com/FusePowered"><span class="fa fa-facebook"></span></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/FusePowered"><span class="fa fa-twitter"></span></a>
+                    </li>
+                    <li>
+                        <a href="http://www.linkedin.com/company/fuse-inc."><span class="fa fa-linkedin"></span></a>
+                    </li>
+                    <li>
+                        <a href="http://fuseboxxblog.com/"><span class="fa fa-rss"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </span>
+      </div>
+      <div class="copyright">
+        &copy;  2014 Fuse Towered Inc. All rights reserved.
+      </div>
+    </div>
+</div>
+<script>
+
+  $(document).ready(function(){
+    /* Show Login modal if the url has #login in it */
+    if (window.location.hash == "#login") {
+        $('#loginModal').modal('show');
+    }
+
+    /* Show Signup modal if the url has #signup in it */
+    if (window.location.hash == "#signup") {
+        $('#signupModal').modal('show');
+    }
+
+    $('#loginModal').on('show.bs.modal', function () {
+            $(this).find('#passwordResetForm').hide();
+            $(this).find('#loginForm').show();
+            $(this).find('.inlineError').hide();
+            $(this).find('#emailSent').hide();
+
+            $(this).find('input').val("");
+        })
+
+    /* Login form submission */
+    $("#loginForm").submit(function(e) {
+            e.preventDefault();
+      email = $(this).find("#email").val();
+      password = $(this).find("#password").val();
+
+      if(email == "" || password == "") {
+        $(this).find('.inlineError').show().html('Please enter your email address and password');
+        return false;
+      }
+
+            postData = $(this).serialize();
+            postData += '&rememberme=' + ($('#rememberme').prop('checked') ? 1 : 0);
+
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: 'dashboard/login/loginasync',
+                dataType: 'json',
+                data: postData,
+                context: this,
+                success: function(data, status, xhr) {
+                    if (status == 'success') {
+                        if (data['errors'] > 0) {
+                            $(this).find('.inlineError').show().html(data['errorMessage']);
+                        } else {
+                            window.location.href = data.redirectTo;
+                        }
+                    } else {
+                        $(this).find('.inlineError').show().html('Application Error.');
+                    }
+                },
+                error: function(xhr, status) {
+                    $(this).find('.inlineError').show().html('Application Error.');
+                }
+            });
+    });
+
+    /* Reset Password form submission */
+    $("#passwordResetForm").submit(function(e) {
+            e.preventDefault();
+            email = $(this).find("#email").val();
+
+            if(email == "" || !IsEmail(email)) {
+        $(this).find('.inlineError').show().html('Please enter your email address');
+        return false;
+      }
+
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: 'dashboard/login/passwordrecoveryasync',
+                dataType: 'json',
+                data: { email: email },
+                context: this,
+                success: function(data, status, xhr) {
+                    if (status == 'success') {
+                        if (data['errors'] > 0) {
+                            $(this).find('.inlineError').show().html(data['errorMessage']);
+                        } else {
+                          $(this).find('.inlineError').hide();
+                          $(this).hide();
+                            $(this).parent().find('#emailSent').show();
+                        }
+                    } else {
+                        $(this).find('.inlineError').show().html('Application Error.');
+                    }
+                },
+                error: function(xhr, status) {
+                    $(this).find('.inlineError').show().html('Application Error.');
+                }
+            });
+           
+    });
+
+    /* Show password reset */
+    $("#loginForm a#passwordResetLink").click(function(){
+      $("#loginForm").hide();
+            $('.inlineError').hide();
+      $("#passwordResetForm").show();
+    });
+
+    /* Signup Form submission */
+    $("#signupForm").submit(function(){
+      form = $("#signupForm");
+      name = form.find("#name").val();
+      email = form.find("#email").val();
+      company = form.find("#company").val();
+      title = form.find("#title").val();
+
+      wantsFuseBoxx = 0;
+      wantsAdRally = 0;
+
+      if(form.find("#wantsFuseBoxx").is(':checked')) {
+        wantsFuseBoxx = 1;
+      }
+      if(form.find("#wantsAdRally").is(':checked')) {
+        wantsAdRally = 1;
+      }
+
+      error = "";
+
+      if(!name) {
+        error = error + "<li>Please enter your name</li>"
+      }
+
+      if(!IsEmail(email)) {
+        error = error + "<li>Please enter a valid email address</li>"
+      }
+
+      if(!company) {
+        error = error + "<li>Please enter your company name</li>"
+      }
+
+      if(!title) {
+        error = error + "<li>Please enter your title</li>"
+      }
+
+      if(!wantsFuseBoxx && !wantsAdRally) {
+        error = error + "<li>Please select which products you're interested in</li>"
+      }
+
+      if(error != "") {
+        form.find(".alert").show().html("<ul>" + error + "</ul>");
+
+        return false;
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "signupFormMailer.php",
+        data: { name: name, email: email, company: company, title: title, wantsFuseBoxx: wantsFuseBoxx, wantsAdRally: wantsAdRally },
+        dataType: "json"
+      })
+          .done(function( msg ) {
+            if(msg.error == "0") {
+              form.find(".modal-footer").html("<p style='color:#93c869'>Your request was successfully submitted!</p>");
+
+              setTimeout(function() {
+                $('#signupModal').modal('hide');
+            }, 2500);
+            } else {
+              form.find(".modal-footer").html("<p>There was an error processing your request, please try again later.</p>");
+            }
+          });
+      return false;
+    });
+
+    /* Show signup modal for Fuseboxx when the call to action from homepage is clicked */ 
+    $(".call-to-action .btn").click(function(){
+      $("#signupModal input:checkbox").prop('checked', false);
+      $("#signupModal #wantsFuseBoxx").prop('checked', false);
+
+      $("#signupModal").modal();
+      return false;
+    });
+
+    /* Show signup modal for AdRally when call to action from AdRally page is clicked */
+    $("#adrally_cta").click(function(){
+      $("#signupModal input:checkbox").prop('checked', false);
+      $("#signupModal #wantsAdRally").prop('checked', false);
+
+      $("#signupModal").modal();
+      return false;
+    });
+
+  });
+  
+  function IsEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
+
+
+</script>
+<!-- End footer -->
+</body>
+</html>
